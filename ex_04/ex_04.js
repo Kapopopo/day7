@@ -1,32 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cartItems = document.querySelectorAll(".item");
+    const items = document.querySelectorAll(".item");
 
-    cartItems.forEach(item => {
-        const quantityInput = item.querySelector("input[type='text']");
-        const increaseButton = item.querySelector(".plus-btn");
-        const decreaseButton = item.querySelector(".minus-btn");
-        const deleteButton = item.querySelector(".delete-btn");
-        const likeButton = item.querySelector(".like-btn");
+    items.forEach(item => {
+        const quantity = item.querySelector("input[type='text']");
+        const button_up = item.querySelector(".plus-btn");
+        const button_down = item.querySelector(".minus-btn");
+        const finito_button = item.querySelector(".delete-btn");
+        const heart_button = item.querySelector(".like-btn");
 
-        increaseButton.addEventListener("click", () => {
-            let currentQuantity = parseInt(quantityInput.value);
-            quantityInput.value = currentQuantity + 1;
+        button_up.addEventListener("click", () => {
+            let currentQuantity = parseInt(quantity.value);
+            quantity.value = currentQuantity + 1;
         });
 
-        decreaseButton.addEventListener("click", () => {
-            let currentQuantity = parseInt(quantityInput.value);
+        button_down.addEventListener("click", () => {
+            let currentQuantity = parseInt(quantity.value);
             if (currentQuantity > 1) {
-                quantityInput.value = currentQuantity - 1;
+                quantity.value = currentQuantity - 1;
             }
         });
-        deleteButton.addEventListener("click", () => {
+        finito_button.addEventListener("click", () => {
             item.remove();
         });
-        likeButton.addEventListener("click", () => {
-            likeButton.classList.toggle("is-active");
-            likeButton.classList.add("animated");
+        heart_button.addEventListener("click", () => {
+            heart_button.classList.toggle("is-active");
+            heart_button.classList.add("animated");
             setTimeout(() => {
-                likeButton.classList.remove("animated");
+                heart_button.classList.remove("animated");
             }, 300);
         });
     });
